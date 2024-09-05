@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> API </title>
+</head>
+<body>
+    <h5> Users </h5>
+    <table border="1">
+        <thead>
+            <th> HTTP Methods </th>
+            <th> Path </th>
+            <th> Description </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td> GET </td>
+                <td> /users </td>
+                <td> Gets all the users </td>
+            </tr>
+            <tr>
+                <td> GET </td>
+                <td> /users/:id </td>
+                <td> Gets a single user by ID </td>
+            </tr>
+            <tr>
+                <td> POST </td>
+                <td> /users/register </td>
+                <td> Adds a user </td>
+            </tr>
+            <tr>
+                <td> PATCH </td>
+                <td> /users/update/:id </td>
+                <td> Edits a user info by ID </td>
+            </tr>
+            <tr>
+                <td> DELETE </td>
+                <td> /users/delete/:id </td>
+                <td> Deletes a single user by ID </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h5> Products </h5>
+    <table border="1">
+        <thead>
+            <th> HTTP Methods </th>
+            <th> Path </th>
+            <th> Description </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td> GET </td>
+                <td> /products </td>
+                <td> Gets all the products </td>
+            </tr>
+            <tr>
+                <td> GET </td>
+                <td> /products/:id </td>
+                <td> Gets a single product by ID </td>
+            </tr>
+            <tr>
+                <td> POST </td>
+                <td> /products/addProducts </td>
+                <td> Adds a product </td>
+            </tr>
+            <tr>
+                <td> PATCH </td>
+                <td> /products/update/:id </td>
+                <td> Edits a product info by ID </td>
+            </tr>
+            <tr>
+                <td> DELETE </td>
+                <td> /products/delete/:id </td>
+                <td> Deletes a single product by ID </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
