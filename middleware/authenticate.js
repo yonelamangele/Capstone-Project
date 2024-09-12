@@ -1,12 +1,12 @@
 import { compare } from "bcrypt";
-import { getUserDB } from "../model/userDB.js";
+import { loginDB } from "../model/userDB.js";
 import jwt from 'jsonwebtoken'
 import { config } from "dotenv";
 config()
 
 const checkUser = async(req,res,next) => {
     const {emailAdd, userPass} = req.body;
-    let hashedPassword = (await getUserDB(emailAdd)).userPass
+    let hashedPassword = (await loginDB(emailAdd)).userPass
     console.log(hashedPassword);
     
     compare(userPass, hashedPassword, (err,result) => {

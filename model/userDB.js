@@ -5,7 +5,11 @@ const  getUsersDB = async () => {
     return data
 }
 
-const getUserDB = async (emailAdd) => {
+const getUserDB = async (id) => {
+    let [[data]] = await pool.query('SELECT * FROM users WHERE userID = ?', [id])
+    return data
+}
+const loginDB = async (emailAdd) => {
     let [[data]] = await pool.query('SELECT * FROM users WHERE emaillAdd = ?', [emailAdd])
     return data
 }
@@ -25,4 +29,4 @@ const deleteUserDB = async (id) => {
     return data
 }
 
-export {getUsersDB, getUserDB, insertUserDB, updateUserDB, deleteUserDB}
+export {getUsersDB, getUserDB, insertUserDB, updateUserDB, deleteUserDB, loginDB}
