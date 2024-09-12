@@ -10,7 +10,7 @@ const getUserDB = async (id) => {
     return data
 }
 const loginDB = async (userEmailAdd) => {
-    let [[data]] = await pool.query('SELECT * FROM users WHERE userEmaillAdd = ?', [userEmailAdd])
+    let [[data]] = await pool.query('SELECT * FROM users WHERE userEmailAdd = ?', [userEmailAdd])
     return data
 }
 
