@@ -1,5 +1,6 @@
 import express from 'express'
-import { fetchUsers, fetchUser, insertUser, deleteUser, updateUser, signUpUser, loginUser } from '../controller/userController.js'
+import { fetchUsers, fetchUser, insertUser, deleteUser, updateUser, loginUser } from '../controller/userController.js'
+import { signUpUser } from '../controller/user2Controller.js'
 import { checkUser } from '../middleware/authenticate.js'
 
 const router = express.Router()
