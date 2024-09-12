@@ -20,6 +20,12 @@ const insertUserDB = async (userFirstName, userLastName, userAge, userGender, us
         `, [userFirstName, userLastName, userAge, userGender, userEmailAdd, userPassword, userProfile])
 }
 
+const signUpDB = async (userFirstName, userEmailAdd, userPassword) => {
+    let [data] = await pool.query(`
+        INSERT INTO users (userFirstName, userEmailAdd, userPassword) VALUES (?, ?, ?)
+        `, [userFirstName, userEmailAdd, userPassword])
+}
+
 const updateUserDB = async (userFirstName, userLastName, userAge, userGender, userRole, userEmailAdd, userPassword, userProfile, id) => {
      await pool.query('UPDATE users SET userFirstName = ?, userLastName = ?, userAge = ?, userGender = ?, userRole = ?, userEmailAdd = ?, userPassword = ?, userProfile = ? WHERE userID = ?', [userFirstName, userLastName, userAge, userGender, userRole, userEmailAdd, userPassword, userProfile, id])
 }
@@ -29,4 +35,4 @@ const deleteUserDB = async (id) => {
     return data
 }
 
-export {getUsersDB, getUserDB, insertUserDB, updateUserDB, deleteUserDB, loginDB}
+export {getUsersDB, getUserDB, insertUserDB, updateUserDB, deleteUserDB, loginDB, signUpDB}

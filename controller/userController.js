@@ -1,4 +1,4 @@
-import { getUsersDB, insertUserDB, getUserDB, updateUserDB, deleteUserDB } from '../model/userDB.js'
+import { getUsersDB, insertUserDB, getUserDB, updateUserDB, deleteUserDB, signUpDB } from '../model/userDB.js'
 import {hash} from 'bcrypt'
 
 const fetchUsers = async (req,res) => {
@@ -18,6 +18,18 @@ const insertUser = async (req,res) => {
         console.log(hashedP)
         
         await insertUserDB(userFirstName, userLastName, userAge, userGender, userEmailAdd, hashedP, userProfile)
+    })
+    res.send('User registered successfully :)')
+}
+const signUpUser = async (req,res) => {
+    let {userFirstName,userEmailAdd, userPassword} = req.body
+    console.log(req.body);
+
+    hash(userPassword, 10, async (err, hashedP) => {
+        if (err) throw err
+        console.log(hashedP)
+        
+        await signUpDB(userFirstName, userEmailAdd, hashedP)
     })
     res.send('User registered successfully :)')
 }
@@ -56,4 +68,4 @@ const loginUser = (req,res) => {
     })
 }
 
-export { fetchUsers, insertUser, fetchUser, updateUser, deleteUser, loginUser }
+export { fetchUsers, insertUser, fetchUser, updateUser, deleteUser, loginUser, signUpUser }
