@@ -22,7 +22,7 @@ const insertUserDB = async (userFirstName, userLastName, userAge, userGender, us
 
 const signUpDB = async (userFirstName, userEmailAdd, userPassword) => {
     let [data] = await pool.query(`
-        INSERT INTO users (userFirstName, userEmailAdd, userPassword) VALUES (?, ?, ?)
+        INSERT INTO users2 (userFirstName, userEmailAdd, userPassword) VALUES (?, ?, ?)
         `, [userFirstName, userEmailAdd, userPassword])
 }
 

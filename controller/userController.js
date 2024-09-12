@@ -22,7 +22,7 @@ const insertUser = async (req,res) => {
     res.send('User registered successfully :)')
 }
 const signUpUser = async (req,res) => {
-    let {userFirstName,userEmailAdd, userPassword} = req.body
+    let {userFirstName, userEmailAdd, userPassword} = req.body
     console.log(req.body);
 
     hash(userPassword, 10, async (err, hashedP) => {
