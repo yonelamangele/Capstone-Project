@@ -1,17 +1,27 @@
-import { signUpDB } from '../model/user2DB.js'
-import {hash} from 'bcrypt'
+import { signUpDB } from '../model/user2DB.js';
+import bcrypt from 'bcrypt';
 
-const signUpUser = async (req,res) => {
-    let {userFirstName, userEmailAdd, userPassword} = req.body
-    console.log(req.body);
-
-    hash(userPassword, 10, async (err, hashedP) => {
-        if (err) throw err
-        console.log(hashedP)
+const signUpUser = async (req, res) => {
+    let { userFirstName, userEmailAdd, userPassword } = req.body;
+    
+    if (!userPassword) {
+        return res.status(400).send('Password is required');
+    }
+    
+    try {
         
-        await signUpDB(userFirstName, userEmailAdd, hashedP)
-    })
-    res.send('User registered successfully :)')
-}
+        const hashedP = await bcrypt.hash(userPassword, 10);
 
-export { signUpUser }
+        
+        await signUpDB(userFirstName, userEmailAdd, hashedP);
+        
+        
+        res.send('User registered successfully :)');
+    } catch (error) {
+        
+        console.error(error);
+        res.status(500).send('Server error');
+    }
+};
+
+export { signUpUser };
