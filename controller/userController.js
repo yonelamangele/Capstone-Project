@@ -10,36 +10,36 @@ const fetchUser = async (req,res) => {
 }
 
 const insertUser = async (req,res) => {
-    let {firstName, lastName, userAge, gender, emailAdd, userPass, userProfile} = req.body
+    let {userFirstName, userLastName, userAge, userGender, userEmailAdd, userPassword, userProfile} = req.body
     console.log(req.body);
 
-    hash(userPass, 10, async (err, hashedP) => {
+    hash(userPassword, 10, async (err, hashedP) => {
         if (err) throw err
         console.log(hashedP)
         
-        await insertUserDB(firstName, lastName, userAge, gender, emailAdd, hashedP, userProfile)
+        await insertUserDB(userFirstName, userLastName, userAge, userGender, userEmailAdd, hashedP, userProfile)
     })
     res.send('User registered successfully :)')
 }
 
 const updateUser = async (req,res) => {
-    let {firstName, lastName, userAge, gender, userRole, emailAdd, userPass, userProfile} = req.body
+    let {userFirstName, userLastName, userAge, userGender, userRole, userEmailAdd, userPassword, userProfile} = req.body
     let Users = await getUserDB(req.params.id)
 
-    hash(userPass, 10, async (err, hashedP) => {
+    hash(userPassword, 10, async (err, hashedP) => {
         if (err) throw err
         console.log(hashedP);
         
-        firstName?firstName=firstName:firstName=Users.firstName
-        lastName?lastName=lastName:lastName=Users.lastName
+        userFirstName?userFirstName=userFirstName:userFirstName=Users.userFirstName
+        userLastName?userLastName=userLastName:userLastName=Users.userLastName
         userAge?userAge=userAge:userAge=Users.userAge
-        gender?gender=gender:gender=Users.gender
+        userGender?userGender=userGender:userGender=Users.userGender
         userRole?userRole=userRole:userRole=Users.userRole
-        emailAdd?emailAdd=emailAdd:emailAdd=Users.emailAdd
-        hashedP?hashedP=hashedP:hashedP=Users.userPass
+        userEmailAdd?userEmailAdd=userEmailAdd:userEmailAdd=Users.userEmailAdd
+        hashedP?hashedP=hashedP:hashedP=Users.userPassword
         userProfile?userProfile=userProfile:userProfile=Users.userProfile
 
-        await updateUserDB(firstName, lastName, userAge, gender, userRole, emailAdd, hashedP, userProfile, req.params.id)
+        await updateUserDB(userFirstName, userLastName, userAge, userGender, userRole, userEmailAdd, hashedP, userProfile, req.params.id)
         res.send('User has been updated')
     })
 }

@@ -5,13 +5,13 @@ import { config } from "dotenv";
 config()
 
 const checkUser = async(req,res,next) => {
-    const {emailAdd, userPass} = req.body;
-    let hashedPassword = (await loginDB(emailAdd)).userPass
+    const {userEmailAdd, userPassword} = req.body;
+    let hashedPassword = (await loginDB(userEmailAdd)).userPassword
     console.log(hashedPassword);
     
-    compare(userPass, hashedPassword, (err,result) => {
+    compare(userPassword, hashedPassword, (err,result) => {
         if(result==true) {
-            let token = jwt.sign({emailAdd:emailAdd}, process.env.SECRET_KEY,
+            let token = jwt.sign({userEmailAdd:userEmailAdd}, process.env.SECRET_KEY,
                 {expiresIn:'1h'})
                 console.log(token);
                 req.body.token = token

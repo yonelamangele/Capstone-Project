@@ -9,19 +9,19 @@ const getUserDB = async (id) => {
     let [[data]] = await pool.query('SELECT * FROM users WHERE userID = ?', [id])
     return data
 }
-const loginDB = async (emailAdd) => {
-    let [[data]] = await pool.query('SELECT * FROM users WHERE emaillAdd = ?', [emailAdd])
+const loginDB = async (userEmailAdd) => {
+    let [[data]] = await pool.query('SELECT * FROM users WHERE userEmaillAdd = ?', [userEmailAdd])
     return data
 }
 
-const insertUserDB = async (firstName, lastName, userAge, gender, emailAdd, userPass, userProfile) => {
+const insertUserDB = async (userFirstName, userLastName, userAge, userGender, userEmailAdd, userPassword, userProfile) => {
     let [data] = await pool.query(`
-        INSERT INTO users (firstName, lastName, userAge, gender, emailAdd, userPass, userProfile) VALUES (?, ?, ?, ?, ?, ?, ?)
-        `, [firstName, lastName, userAge, gender, emailAdd, userPass, userProfile])
+        INSERT INTO users (userFirstName, userLastName, userAge, userGender, userEmailAdd, userPassword, userProfile) VALUES (?, ?, ?, ?, ?, ?, ?)
+        `, [userFirstName, userLastName, userAge, userGender, userEmailAdd, userPassword, userProfile])
 }
 
-const updateUserDB = async (firstName, lastName, userAge, gender, userRole, emailAdd, userPass, userProfile, id) => {
-     await pool.query('UPDATE users SET firstName = ?, lastName = ?, userAge = ?, gender = ?, userRole = ?, emailAdd = ?, userPass = ?, userProfile = ? WHERE userID = ?', [firstName, lastName, userAge, gender, userRole, emailAdd, userPass, userProfile, id])
+const updateUserDB = async (userFirstName, userLastName, userAge, userGender, userRole, userEmailAdd, userPassword, userProfile, id) => {
+     await pool.query('UPDATE users SET userFirstName = ?, userLastName = ?, userAge = ?, userGender = ?, userRole = ?, userEmailAdd = ?, userPassword = ?, userProfile = ? WHERE userID = ?', [userFirstName, userLastName, userAge, userGender, userRole, userEmailAdd, userPassword, userProfile, id])
 }
 
 const deleteUserDB = async (id) => {
