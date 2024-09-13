@@ -1,6 +1,6 @@
 <template>
   <div class="para" :style="{height: '20vh'}">
-    <h3> Hello There! We're Capture Words, a world of powerful anime quotes <br> where you can capture words of your interest to customize your home, your office or any of your personal spaces. <br> Explore our amazing deals and have fun.</h3> 
+    <h3> Hello There! We're Capture Words, a world of powerful anime quotes <br> where you can capture words of your interest to customize your home, your office or any of your personal spaces. <br> Explore our amazing deals and have fun. </h3> 
   </div>
   <div class="main">
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">

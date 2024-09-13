@@ -13,7 +13,9 @@
   <div class="hours">
     <table border="2">
       <thead>
-         <th colspan="8" class="col"> Trading Hours </th>
+        <tr>
+          <th colspan="8" class="col"> Trading Hours </th>
+        </tr>
       </thead>
       <tbody>
         <tr>

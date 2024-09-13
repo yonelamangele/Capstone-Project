@@ -8,19 +8,17 @@
             <li class="nav-item">
                 <a class="nav-link" href="/about"> About Us </a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> Products </a>
-                <ul class="dropdown-menu" id="black">
-                    <li><a class="dropdown-item" href="/categories"> Categories </a></li>
-                    <li><hr class="dropdown-navider"></li>
-                    <li><a class="dropdown-item" href="/productsView"> All Products </a></li>
-                </ul>
+            <li class="nav-item">
+                <a class="nav-link" href="/productsView"> Products </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/adminView"> Admin </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/contactView"> Contact Us </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/signupView"> Sign Up </a>
             </li>
         </ul>
     </nav>
@@ -54,7 +52,7 @@ a {
         font-family: "Rubik Glitch", system-ui;
 }
 #black{
-    background-color: tan;
+    background-color: #383838;
     color: black;
 }
 </style>
