@@ -6,6 +6,8 @@ config()
 
 const checkUser = async(req,res,next) => {
     const {userEmailAdd, userPassword} = req.body;
+    console.dir(userEmailAdd);
+    
     let hashedPassword = (await loginDB(userEmailAdd)).userPassword
     console.log(hashedPassword);
     

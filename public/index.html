@@ -77,5 +77,41 @@
             </tr>
         </tbody>
     </table>
+
+    <h5> Cart </h5>
+    <table border="1">
+        <thead>
+            <th> HTTP Methods </th>
+            <th> Path </th>
+            <th> Description </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td> GET </td>
+                <td> /user/:id/carts </td>
+                <td> Gets all the products added to the cart </td>
+            </tr>
+            <tr>
+                <td> POST </td>
+                <td> /user/:id/cart </td>
+                <td> Adds the product to the cart </td>
+            </tr>
+            <tr>
+                <td> PATCH </td>
+                <td> /user/:id/cart/:id </td>
+                <td> Updates the product added to the cart </td>
+            </tr>
+            <tr>
+                <td> DELETE </td>
+                <td> /user/:id/cart </td>
+                <td> Deletes products from the cart </td>
+            </tr>
+            <tr>
+                <td> DELETE </td>
+                <td> /user/:id/cart/:id </td>
+                <td> Deletes a specific product from the cart </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

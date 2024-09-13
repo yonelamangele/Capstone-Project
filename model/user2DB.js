@@ -8,7 +8,9 @@ const signUpDB = async (userFirstName, userEmailAdd, userPassword) => {
 }
 
 const loginDB = async (userEmailAdd) => {
-    let [[data]] = await pool.query('SELECT * FROM users WHERE userEmailAdd = ?', [userEmailAdd])
+    let [[data]] = await pool.query('SELECT * FROM users2 WHERE userEmailAdd = ?', [userEmailAdd])
+    console.dir(data);
+    
     return data
 }
 
